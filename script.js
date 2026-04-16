@@ -1,8 +1,8 @@
-mapboxgl.accessToken = 'MAPBOX_TOKEN_PLACEHOLDER';
+mapboxgl.accessToken = 'pk.eyJ1IjoicmZveGFsbDMiLCJhIjoiY21uaTJ1emlwMDlkNDJwcHV0YXVxNHZlbCJ9.w9o60UF7L6nwMqTGzWGu0w';
 
 const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/light-v11',
+    style: 'mapbox://styles/mapbox/standard',
     center: [-73.97912, 40.71802],
     zoom: 10.05
 });
@@ -263,6 +263,7 @@ const markerData = [
 ]
 
 // Color library for boroughs
+// TODO: change to color library for owner (Amazon, FedEx, UPS)
 const boroughColors = {
     "SI": "#1f77b4",
     "BX": "#ff7f0e",
@@ -282,6 +283,12 @@ markerData.forEach((marker) => {
         )
         .addTo(map);
 });
+
+// TODO create feature such that, when a marker is clicked, the map zooms in and changes the pitch to show nearby buildings
+// preferred settings - bearing: 0 (due north), pitch: 71.50
+// and, when the popup is closed, the map will zoom back out and reset the pitch to be flat
+// TODO: check bearing relative to compass
+// TODO: remove annoying landmark markers when zoomed in
 
 // Create legend
 // TODO: Update borough names to full names for clarity
